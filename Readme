@@ -1,0 +1,80 @@
+README: Task Management System
+
+Overview
+This is a RESTful API for managing tasks, implemented using Node.js and Express. It supports basic CRUD operations, task completion, and includes basic authentication.
+
+Design Decisions
+
+Architecture:
+Used Express for lightweight and scalable API development.
+Divided the application into clear modules: routes, controllers, and models for separation of concerns.
+
+Data Storage:
+Chose an in-memory data store for simplicity in this case study. A database like MongoDB or PostgreSQL would be ideal for production.
+
+Authentication:
+Implemented Basic Authentication for simplicity, with credentials hardcoded (admin:password).
+Validation and Error Handling:
+
+Basic validation is implemented for required fields (title and due_date).
+Used appropriate HTTP status codes for each response (e.g., 404 for not found, 400 for bad request, etc.).
+
+Timestamps:
+Automatically added created_at and updated_at fields for task tracking.
+Assumptions
+
+Data Structure:
+Each task has a unique id, title, optional description, a due_date, and a status with default value pending.
+
+Authentication:
+No user roles or advanced token-based auth (e.g., JWT) are implemented for simplicity.
+Only one user (admin) is supported.
+
+Environment:
+The system runs on localhost using Node.js.
+Port is fixed to 3000.
+
+Scalability:
+The in-memory storage limits the application's scalability and persistence.
+Suitable for small-scale or demo use only.
+
+Setup and Usage
+
+Install Dependencies:
+
+bash
+Copy code
+npm install
+Run the Server:
+
+bash
+
+Copy code
+node src/app.js
+
+Test API Endpoints:
+Use Postman or cURL to test the endpoints.
+
+Include the Authorization header (Authorization : YWRtaW46cGFzc3dvcmQ=).
+
+Endpoints:
+
+GET /tasks: Retrieve all tasks.
+GET /tasks/:id: Retrieve a specific task.
+POST /tasks: Create a new task.
+PUT /tasks/:id: Update an existing task.
+DELETE /tasks/:id: Delete a task.
+PATCH /tasks/:id/complete: Mark a task as complete.
+
+Run Tests:
+
+bash
+Copy code
+npm test
+Future Improvements
+Integrate with a persistent database (e.g., MongoDB).
+Replace Basic Authentication with JWT or OAuth for enhanced security.
+Add user management with roles and permissions.
+Implement pagination and filtering for GET /tasks.
+
+Feel free to explore the API and customize it for your needs! 🚀
